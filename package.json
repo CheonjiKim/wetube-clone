@@ -1,0 +1,29 @@
+{
+  "name": "wetube-clone",
+  "version": "1.0.0",
+  "description": "Learning NodeJS",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "win": "node index.js",
+    "dev": "nodemon --exec babel-node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CheonjiKim/wetube-clone.git"
+  },
+  "author": "Cheonji",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CheonjiKim/wetube-clone/issues"
+  },
+  "homepage": "https://github.com/CheonjiKim/wetube-clone#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/node": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "nodemon": "^2.0.19"
+  }
+}
