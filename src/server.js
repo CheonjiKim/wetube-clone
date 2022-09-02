@@ -1,18 +1,24 @@
 import express from "express";
+import morgan from "morgan";
 
 const app = express();
-
+const logger = morgan("dev"); // morgan is a MIDDLEWARE
 const PORT = 4000;
 
-const handleRoot = (req, res) => res.send("<h1>You are in /</h1>");
-const handleAbout = (req, res) => res.send("<h1>You are in /about</h1>");
-const handleContact = (req, res) => res.send("<h1>You are in /contact</h1>");
-const handleLogin = (req, res) => res.send("<h1>You are in /login</h1>");
+app.use(logger);
 
-app.get("/", handleRoot);
-app.get("/about", handleAbout);
-app.get("/contact", handleContact);
-app.get("/login", handleLogin);
+const globalRouter = express.Router();
+globalRouter.get("/", (req, res) => res.send("home"));
+
+const videoRouter = express.Router();
+videoRouter.get("/watch", (req, res) => res.send("watch video"));
+
+const userRouter = express.Router();
+userRouter.get("/edit", (req, res) => res.send("edit video"));
+
+app.use("/", globalRouter);
+app.use("/videos", videoRouter);
+app.use("/users", userRouter);
 
 const handleListening = () =>
   console.log(`server listening on http://localhost:${PORT}`);
